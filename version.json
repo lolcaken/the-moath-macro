@@ -4,13 +4,13 @@
     "assets":  {
                    "windows-x64":  {
                                        "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.3/BlackPANDA-1.1.3-win64.zip",
-                                       "sha256":  "aa3d7c440de50325085aa23b5764d3c403e09c822b82ec04ed7ca15b810596a8",
-                                       "size":  2659975
+                                       "sha256":  "8985627bbc7b4b6f23d8e3c7f2fc2e37d385a996f0692f7e56b1e058e174e40e",
+                                       "size":  2664212
                                    },
                    "windows-x64-setup":  {
                                              "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.3/BlackPANDA-1.1.3-setup.exe",
-                                             "sha256":  "16685507c35db40e188c0fd64383b3e17a38979a02f6645bf1906f0d59c95d25",
-                                             "size":  3931485
+                                             "sha256":  "61c2b2ef49113a9cba6797453213c9e63e03f7851a785f8183b4568944b67a4d",
+                                             "size":  3934894
                                          }
                }
 }
