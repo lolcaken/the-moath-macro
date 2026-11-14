@@ -1,11 +1,11 @@
 {
     "version":  "1.0.1",
-    "notes":  "Fix control binding on cold start; minimal update prompt; new app icon.",
+    "notes":  "Fix control binding on cold start; minimal update prompt; new app icon and UI mark.",
     "assets":  {
                    "windows-x64":  {
                                        "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.0.1/TheMoathMacro-1.0.1-win64.zip",
-                                       "sha256":  "4cedada454b3e045b157556cebee2b6e6c98eaf35ae6d3204647702a66d85319",
-                                       "size":  2493108
+                                       "sha256":  "3db21072a00de6d2133419cf13dc8065c1d7f73559ade4b8c264477da9e0b9cd",
+                                       "size":  2493227
                                    }
                }
 }
