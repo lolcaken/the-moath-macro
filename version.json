@@ -1,11 +1,11 @@
 {
-    "version":  "1.0.2",
-    "notes":  "Telemetry dashboard + System tab, smoother sliders, clean core shutdown, per-user installer.",
+    "version":  "1.0.3",
+    "notes":  "Modules redesign with hotbar dropdowns and dimmed disabled modules. Hover-expand sidebar. Hyperion/Luau checks are opt-in and off by default. Telemetry UI removed; stats run silently. Faster, more reliable updater that always relaunches. Source and Lua modules reorganized.",
     "assets":  {
                    "windows-x64":  {
-                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.0.2/TheMoathMacro-1.0.2-win64.zip",
-                                       "sha256":  "7c4379ccaf12212aef3278f6a609699c25ada2cb4066cddea765b377e5de1337",
-                                       "size":  2549131
+                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.0.3/TheMoathMacro-1.0.3-win64.zip",
+                                       "sha256":  "0d8605395bffba3daaf8f484e06c20fe26649df16ab07292ab1a4b0a3240a41d",
+                                       "size":  2557858
                                    }
                }
 }
