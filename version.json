@@ -1,16 +1,16 @@
 {
-    "version":  "1.1.6",
-    "notes":  "Rebuilds the Tauri shell so the UI actually ships the new rod options. 1.1.3 through 1.1.5 copied a prebuilt blackpanda.exe that predated the HTML by eight hours, so Xorcist, RecordBreaker and Maelstrom were in the Lua bundle but absent from both rod dropdowns. The packager now refuses to run when the shell is older than anything in ui/web.\n\nRod coverage since 1.1.3: Xorcist (static-meter supercharge policy), RecordBreaker (notch-vs-target rotation timing, right-click submit, rate-adaptive for rest mode), Maelstrom (charge-aware release gate holding until the fill clears 0.85), and a rewritten Pinion\u0027s Aria that enumerates live notes instead of looking them up by name.\n\nUpdate channel: the checker queries every manifest source and keeps the highest version instead of stopping at the first response, so a stale CDN edge can no longer mask a published release.",
+    "version":  "1.1.7",
+    "notes":  "Fixes corrupted UI text. ui/web/index.html had been round-tripped through cp1252 (UTF-8 bytes decoded as Windows-1252 and re-saved as UTF-8), which turned every em dash, ellipsis, curly apostrophe and the multiplication sign in the aquarium presets into mojibake - the dropdown read \u0027Standard 1680A-900\u0027 instead of \u00271680x900\u0027, and the Hyperion/Process/Luau readouts showed garbage instead of an em dash. The bytes were still valid UTF-8, so nothing downstream noticed.\n\nAdds tools/check_encoding.py and wires it into packaging: the build now fails if any shipped text asset is not clean UTF-8 or contains cp1252 artifact sequences, so this class of corruption cannot reach a release again.\n\nShell rebuilt so the repaired HTML is embedded; core and Lua bundle unchanged from 1.1.6.",
     "assets":  {
                    "windows-x64":  {
-                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.6/BlackPANDA-1.1.6-win64.zip",
-                                       "sha256":  "8b3698ddbd29ad798a3d5cdee53782a60754ecb414b02e054bbbb46638248b20",
-                                       "size":  2675645
+                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.7/BlackPANDA-1.1.7-win64.zip",
+                                       "sha256":  "25c361f3b9c4b043fb4d99737f98c20dac9befcdd2d5ddb60cef8c554c1e58ae",
+                                       "size":  2680863
                                    },
                    "windows-x64-setup":  {
-                                             "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.6/BlackPANDA-1.1.6-setup.exe",
-                                             "sha256":  "5c36aeb69ffe2a550f5047b4c6e648b550b853daa0ae56da1227dc04026f8376",
-                                             "size":  3934564
+                                             "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.7/BlackPANDA-1.1.7-setup.exe",
+                                             "sha256":  "0bfec835703813c9ce01c2bf50f126e3380edb7f910bf05fd71d25c2e5550ea6",
+                                             "size":  3939517
                                          }
                }
 }
