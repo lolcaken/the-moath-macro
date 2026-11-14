@@ -1,16 +1,16 @@
 {
-    "version":  "1.1.4",
-    "notes":  "Rod minigame coverage: Xorcist (static-meter supercharge policy), RecordBreaker (notch-vs-target rotation timing via right-click), Maelstrom (charge-aware release gate), and a rewritten Pinion\u0027s Aria that enumerates live notes instead of looking them up by name. Also fixes the release pipeline: the bundle is now mirrored into build/bin/lua so packaging can no longer ship a stale copy. Updater runs the Inno Setup installer silently and relaunches; macro start verifies the rod against the hotbar before equipping; attach prefers the windowed Roblox client when a launcher stub is also running.",
+    "version":  "1.1.5",
+    "notes":  "Rod minigame coverage: Xorcist (static-meter supercharge policy), RecordBreaker (notch-vs-target rotation timing via right-click), Maelstrom (charge-aware release gate), and a rewritten Pinion\u0027s Aria that enumerates live notes instead of looking them up by name. Fixes the update channel: the manifest chain now asks jsDelivr first (the only source purged at publish time) instead of raw.githubusercontent, which sits behind a CDN cache that was serving the previous release for minutes after a publish and making the app report up to date against a manifest that no longer existed. Also mirrors the Lua bundle into build/bin/lua so packaging can no longer ship a stale copy.",
     "assets":  {
                    "windows-x64":  {
-                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.4/BlackPANDA-1.1.4-win64.zip",
-                                       "sha256":  "e1d92527da048194a3daecfa4c27f4e7d51f0f87973c40977e7f54af15be6ac3",
-                                       "size":  2664212
+                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.5/BlackPANDA-1.1.5-win64.zip",
+                                       "sha256":  "6ae12282997ce9f68d325adbc400c2581c9e21a358a226fbdbda53a6e2135aa1",
+                                       "size":  2674368
                                    },
                    "windows-x64-setup":  {
-                                             "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.4/BlackPANDA-1.1.4-setup.exe",
-                                             "sha256":  "6786c10c1dcdb2a91f4b0169cc4b027751c0d93381bdba89b1213da321f2fee4",
-                                             "size":  3934911
+                                             "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.5/BlackPANDA-1.1.5-setup.exe",
+                                             "sha256":  "2adc31a688e0f49c6ed207542ac518243e975b73132ae6d665a2267a8436c4be",
+                                             "size":  3934090
                                          }
                }
 }
