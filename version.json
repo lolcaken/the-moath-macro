@@ -1,11 +1,11 @@
 {
-    "version":  "1.1.0",
-    "notes":  "Rebranded to BlackPANDA with a monochrome black UI and a new panda icon. Refined modules, sliders, sidebar and topbar. Hyperion/Luau checks stay opt-in and off by default. Telemetry runs silently. Faster updater that always relaunches. New install and data folders; existing 1.0.x installs should run this setup once.",
+    "version":  "1.1.1",
+    "notes":  "Adds rebindable global start/stop hotkeys in Settings (default F1/F2), saved to settings.ini and applied live. Capture mode suspends the old keys so assigning a key does not trigger it. Includes everything from 1.1.0: BlackPANDA monochrome UI, panda icon, refined modules and updater.",
     "assets":  {
                    "windows-x64":  {
-                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.0/BlackPANDA-1.1.0-win64.zip",
-                                       "sha256":  "94d78461133dea44c2f4454627dd8dbece4aa62d0bb4cd632f3539d270a03693",
-                                       "size":  2643015
+                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.1/BlackPANDA-1.1.1-win64.zip",
+                                       "sha256":  "b2d8fd5717db1c227333957a01bea76b0aba3311b25195e996fee6415a6bd3d8",
+                                       "size":  2646866
                                    }
                }
 }
