@@ -1,11 +1,11 @@
 {
-    "version":  "1.0.0",
-    "notes":  "Initial release: memory-only Fisch macro, theo auto-update, Tauri shell.",
-    "assets":  {
-                   "windows-x64":  {
-                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.0.0/TheMoathMacro-1.0.0-win64.zip",
-                                       "sha256":  "b4d646cb21fea54694d87303bea6a9176df327f233afd3e42f637bedaab4b51e",
-                                       "size":  2461836
-                                   }
-               }
+  "version": "1.0.1",
+  "notes": "Update pipeline test build.",
+  "assets": {
+    "windows-x64": {
+      "url": "https://github.com/lolcaken/the-moath-macro/releases/download/v1.0.0/TheMoathMacro-1.0.0-win64.zip",
+      "sha256": "b4d646cb21fea54694d87303bea6a9176df327f233afd3e42f637bedaab4b51e",
+      "size": 2461836
+    }
+  }
 }
