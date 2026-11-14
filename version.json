@@ -1,11 +1,11 @@
 {
-    "version":  "1.0.3",
-    "notes":  "Modules redesign with hotbar dropdowns and dimmed disabled modules. Hover-expand sidebar. Hyperion/Luau checks are opt-in and off by default. Telemetry UI removed; stats run silently. Faster, more reliable updater that always relaunches. Source and Lua modules reorganized.",
+    "version":  "1.1.0",
+    "notes":  "Rebranded to BlackPANDA with a monochrome black UI and a new panda icon. Refined modules, sliders, sidebar and topbar. Hyperion/Luau checks stay opt-in and off by default. Telemetry runs silently. Faster updater that always relaunches. New install and data folders; existing 1.0.x installs should run this setup once.",
     "assets":  {
                    "windows-x64":  {
-                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.0.3/TheMoathMacro-1.0.3-win64.zip",
-                                       "sha256":  "0d8605395bffba3daaf8f484e06c20fe26649df16ab07292ab1a4b0a3240a41d",
-                                       "size":  2557858
+                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.0/BlackPANDA-1.1.0-win64.zip",
+                                       "sha256":  "ad9aac02600c15f72856a64f3c15acf73955185a8fac4baa3bdc8387e15cf4b3",
+                                       "size":  2643015
                                    }
                }
 }
