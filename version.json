@@ -1,16 +1,16 @@
 {
-    "version":  "1.1.11",
-    "notes":  "The ESP overlay is back in the release.\n\n- BlackPandaOverlay.exe now ships with the installer and the portable zip. 1.1.9 and 1.1.10 left it out, so the ESP switch turned on with no window to draw.\n- The Visuals card reports what the core sees: overlay running, stopped, or missing.\n- If the overlay process exits, the core relaunches it while ESP is enabled.\n- Packaging refuses to build an archive without the overlay, the core or the lua bundle.",
+    "version":  "1.1.12",
+    "notes":  "## Offsets follow the client, not the release\n\n- theo\u0027s table is now fetched for the Roblox build that is actually running, not for the newest dump. A client that is one or two builds behind the rollout keeps working instead of failing with `FakeDataModel chain returned 0`.\n- `/versions` is read only on a mismatch: the app checks whether theo publishes a table for your build, and says which case you are in.\n- If both static pointer chains fail, the FakeDataModel module slot is recovered by scanning the module, then written back to offsets.ini. Measured 250 ms on a live client with both chains broken.\n- New coverage canary: `offsets_applied_peak` records the highest field count theo has ever mapped. A table that maps fewer fields logs a warning and shows a red line on the Offsets card instead of silently keeping stale values.\n- Offsets tab prints the client build: up to date / behind latest (using this build\u0027s table) / no table for this build.\n\n## ESP range\n\n- Max distance slider goes to 20000 studs (was 2000), with near / map / whole map presets.\n- Fade no longer scales with the slider: raising the range adds fish at the edge instead of brightening everything near you.\n- Scan ceiling raised from 128 to 512 roamers.\n- Status chip reports the real reach: `FISH 56  far 268st  59 fps` - the farthest resolved fish, not the slider value.\n\n## Diagnostics\n\n- `dm_probe.exe`: prints client build, theo\u0027s latest, index membership, resolve time, DataModel chain and place id. `--index-check \u003cversion\u003e` asks theo directly. `--break-all` proves the slot-recovery path.\n- `overlay_probe.exe --missing`: counts bucket children and names any model with no geometry, so a streamed-out or renamed fish is visible instead of silently absent.\n- Offsets errors name the cause: \"the table is for a different client build\" instead of \"offsets stale?\".\n- Log strings are plain ASCII; typographic characters no longer turn into mojibake in the log file.",
     "assets":  {
                    "windows-x64":  {
-                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.11/BlackPANDA-1.1.11-win64.zip",
-                                       "sha256":  "400f655f9bf1a4e5ff8d445e4d2ca7f2a7921dd33a3047cc6ea10ee9c4aa6276",
-                                       "size":  3948241
+                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.12/BlackPANDA-1.1.12-win64.zip",
+                                       "sha256":  "b81a3e67e6627b279bb9a6ce0c26b0f333df001d0701e7b826269c66dd5706c4",
+                                       "size":  3962520
                                    },
                    "windows-x64-setup":  {
-                                             "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.11/BlackPANDA-1.1.11-setup.exe",
-                                             "sha256":  "252efeaf3ca14f7dcc8222b35f5e1c394c4378746f719b263bf5d13c34ee37eb",
-                                             "size":  4567304
+                                             "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.12/BlackPANDA-1.1.12-setup.exe",
+                                             "sha256":  "51780039e678a73b03ab2c12668f80da1f69ed20ed390d9e7f3730f840e07641",
+                                             "size":  4569272
                                          }
                }
 }
