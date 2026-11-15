@@ -1,16 +1,16 @@
 {
-    "version":  "1.1.10",
-    "notes":  "Fish ESP, plus a fix for this dialog.\n\n- Fish ESP: boxes, names, distance, tracers and edge arrows for every roaming fish, with the rarity on the plate (Sea Bass - Common).\n- Relic ESP card with its own switch and tier filter.\n- Visuals tab on the rail.\n- Cast and Reel \u0026 shake got master switches; the card dims when the group is off.\n- ESP calibration moved to Settings.\n- The overlay is click-through again, so the camera works while it draws.\n- Long changelogs now scroll inside the update dialog instead of pushing Install off screen.",
+    "version":  "1.1.11",
+    "notes":  "The ESP overlay is back in the release.\n\n- BlackPandaOverlay.exe now ships with the installer and the portable zip. 1.1.9 and 1.1.10 left it out, so the ESP switch turned on with no window to draw.\n- The Visuals card reports what the core sees: overlay running, stopped, or missing.\n- If the overlay process exits, the core relaunches it while ESP is enabled.\n- Packaging refuses to build an archive without the overlay, the core or the lua bundle.",
     "assets":  {
                    "windows-x64":  {
-                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.10/BlackPANDA-1.1.10-win64.zip",
-                                       "sha256":  "63a9e3fdad983933cf4014b30974b9a3fe38c3b5353546a10c64200efad11ca9",
-                                       "size":  2687357
+                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.11/BlackPANDA-1.1.11-win64.zip",
+                                       "sha256":  "400f655f9bf1a4e5ff8d445e4d2ca7f2a7921dd33a3047cc6ea10ee9c4aa6276",
+                                       "size":  3948241
                                    },
                    "windows-x64-setup":  {
-                                             "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.10/BlackPANDA-1.1.10-setup.exe",
-                                             "sha256":  "219bafc117ef5cff201d7b91fd2076be1cf65743b58830912893fdadcf094876",
-                                             "size":  3943824
+                                             "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.11/BlackPANDA-1.1.11-setup.exe",
+                                             "sha256":  "252efeaf3ca14f7dcc8222b35f5e1c394c4378746f719b263bf5d13c34ee37eb",
+                                             "size":  4567304
                                          }
                }
 }
