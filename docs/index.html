@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BLACKPANDA — Fisch on autopilot</title>
+  <meta name="description" content="BlackPANDA is a Windows macro for Fisch: auto cast, reel minigames, harpoon targeting and an external overlay that marks every fish in the water. External process, read-only memory, nothing injected." />
+  <meta name="theme-color" content="#05060a" />
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <header class="top">
+    <a class="brand" href="#top" aria-label="BlackPANDA home">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+        <circle class="panda-ear" cx="9.4" cy="9" r="4.6" />
+        <circle class="panda-ear" cx="22.6" cy="9" r="4.6" />
+        <circle class="panda-face" cx="16" cy="17.4" r="9.6" />
+        <ellipse class="panda-patch" cx="12.1" cy="15.8" rx="2.5" ry="3.1" transform="rotate(-20 12.1 15.8)" />
+        <ellipse class="panda-patch" cx="19.9" cy="15.8" rx="2.5" ry="3.1" transform="rotate(20 19.9 15.8)" />
+        <circle class="panda-eye" cx="12.4" cy="15.4" r="1.05" />
+        <circle class="panda-eye" cx="19.6" cy="15.4" r="1.05" />
+        <path class="panda-nose" d="M14.5 20.3h3l-1.5 1.8z" />
+      </svg>
+      <span class="brand-word">BLACKPANDA</span>
+    </a>
+
+    <nav class="nav" aria-label="Sections">
+      <a href="#download">Download</a>
+      <a href="#features">Features</a>
+      <a href="#how">How it runs</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <a class="ghost-btn" href="https://github.com/lolcaken/the-moath-macro" rel="noreferrer">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.1-1.47-1.1-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.88 1.52 2.3 1.08 2.86.82.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03a9.5 9.5 0 0 1 5 0c1.91-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+      <span>GitHub</span>
+    </a>
+  </header>
+
+  <main id="top">
+    <section class="hero" id="download">
+      <p class="eyebrow">
+        <span class="dot" aria-hidden="true"></span>
+        Windows 10 / 11 · x64 · external process
+      </p>
+
+      <h1>Fisch, on<br /><span class="accent">autopilot.</span></h1>
+
+      <p class="lede">
+        Casts, reels, reads the minigame. Harpoons what's in the water. Draws an overlay over the
+        game with a box, name, rarity and distance on every roaming fish — including relics.
+        Its own process, memory reads only, nothing injected.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn primary" id="btn-installer" href="https://github.com/lolcaken/the-moath-macro/releases/latest">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+          <span>Download installer</span>
+          <span class="btn-meta" data-manifest="size-setup">4.58 MB</span>
+        </a>
+        <a class="btn" id="btn-portable" href="https://github.com/lolcaken/the-moath-macro/releases/latest">
+          Portable .zip
+        </a>
+      </div>
+
+      <dl class="release-meta">
+        <div>
+          <dt>Latest</dt>
+          <dd><span class="live" data-manifest="version">v1.1.13</span></dd>
+        </div>
+        <div>
+          <dt>Portable size</dt>
+          <dd><span data-manifest="size-zip">3.98 MB</span></dd>
+        </div>
+        <div class="sha">
+          <dt>SHA-256 <button class="copy" id="copy-sha" type="button" aria-label="Copy checksum">copy</button></dt>
+          <dd><code data-manifest="sha">3f9f8da2…43bce51</code></dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="builds" aria-label="Available builds">
+      <article class="build">
+        <div class="build-head">
+          <span class="tag">Recommended</span>
+          <h2>Installer</h2>
+        </div>
+        <p>Per-user setup, no admin prompt. Adds a Start Menu entry and an uninstaller, and keeps itself current through the app's own updater.</p>
+        <ul class="ticks">
+          <li>Installs to <code>%LOCALAPPDATA%\Programs\BlackPANDA</code></li>
+          <li>Auto-updates on launch</li>
+          <li>Uninstalls clean, settings survive</li>
+        </ul>
+        <a class="build-link" href="https://github.com/lolcaken/the-moath-macro/releases/latest">
+          Get the installer
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m0 0-6-6m6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <article class="build">
+        <div class="build-head">
+          <span class="tag quiet">Portable</span>
+          <h2>.zip archive</h2>
+        </div>
+        <p>Same build, no installer. Extract anywhere writable and run <code>BlackPANDA.exe</code>. Updates land the same way, in place.</p>
+        <ul class="ticks">
+          <li>Shell, core and overlay in one folder</li>
+          <li>Settings live in <code>%LOCALAPPDATA%\BlackPANDA</code></li>
+          <li>Easy to move between drives</li>
+        </ul>
+        <a class="build-link" href="https://github.com/lolcaken/the-moath-macro/releases/latest">
+          Get the archive
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m0 0-6-6m6 6-6 6"/></svg>
+        </a>
+      </article>
+    </section>
+
+    <section class="features" id="features">
+      <header class="section-head">
+        <p class="kicker">What's in the box</p>
+        <h2>Six systems, one window.</h2>
+      </header>
+
+      <div class="feature-grid">
+        <article class="feature">
+          <svg class="ficon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h7"/><circle cx="18" cy="15" r="3"/></svg>
+          <h3>Auto fish</h3>
+          <p>Casts on a loop, holds for a perfect cast, watches the reel bar and lands the catch. Calibrated per rod, tuned by balance boost, with a jittered timing profile so a session doesn't read like a metronome.</p>
+        </article>
+
+        <article class="feature">
+          <svg class="ficon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M5 8l7-5 7 5"/><circle cx="12" cy="16" r="4"/></svg>
+          <h3>Four minigames</h3>
+          <p>Lullaby, Maelstrom, Noiseform and Pinions Aria each get a controller that reads the bar from memory and drives the cursor, not a screenshot guess.</p>
+        </article>
+
+        <article class="feature">
+          <svg class="ficon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6Z"/><circle cx="12" cy="12" r="2.5"/></svg>
+          <h3>Fish ESP</h3>
+          <p>An always-on-top window marks every roaming fish with a bracket box, name, rarity and distance. Rarity filters, tracers, edge arrows, per-tier colours.</p>
+        </article>
+
+        <article class="feature">
+          <svg class="ficon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10V6l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg>
+          <h3>Relic ESP</h3>
+          <p>Relics roam like fish, so they get their own card, switch and tier filter. Enchant, Exalted, Cosmic, Twisted, Crested and Empyrean each keep a distinct colour.</p>
+        </article>
+
+        <article class="feature">
+          <svg class="ficon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v16h16"/><path d="m7 15 4-4 3 3 5-6"/></svg>
+          <h3>Harpoon</h3>
+          <p>Targets by rarity and range, aims the camera with a sampled controller and throws. Runs instead of rod fishing when you want the water cleared.</p>
+        </article>
+
+        <article class="feature">
+          <svg class="ficon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v5h-5"/></svg>
+          <h3>Updates itself</h3>
+          <p>Checks the release channel on launch, verifies the SHA-256, and installs in place behind an <em>Install</em> button. No re-download ritual.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="how" id="how">
+      <header class="section-head">
+        <p class="kicker">Architecture</p>
+        <h2>Three processes, one job each.</h2>
+      </header>
+
+      <ol class="steps">
+        <li>
+          <span class="step-no">01</span>
+          <h3>The shell</h3>
+          <p><code>BlackPANDA.exe</code> holds the UI, writes the config and spawns the core. Tauri window, no browser chrome.</p>
+        </li>
+        <li>
+          <span class="step-no">02</span>
+          <h3>The core</h3>
+          <p><code>BlackPandaCore.exe</code> attaches to Roblox read-only, runs the Lua modules, resolves offsets, and keeps the overlay alive. Crash here and the game never notices.</p>
+        </li>
+        <li>
+          <span class="step-no">03</span>
+          <h3>The overlay</h3>
+          <p><code>BlackPandaOverlay.exe</code> owns a click-through DirectComposition window over the client. 60 fps, per-pixel alpha, F8 to hide.</p>
+        </li>
+      </ol>
+
+      <p class="how-note">
+        The core opens Roblox with <code>PROCESS_VM_READ</code> and nothing else — no writes, no injection, no DLLs in the game.
+        Input is synthesised the way a keyboard does it.
+      </p>
+    </section>
+
+    <section class="faq" id="faq">
+      <header class="section-head">
+        <p class="kicker">Before you download</p>
+        <h2>Short answers.</h2>
+      </header>
+
+      <details>
+        <summary>Where should I download it from?</summary>
+        <p>This page, or the GitHub releases page it links to. Builds posted anywhere else are not ours and may carry anything. Check the SHA-256 above against the file you get.</p>
+      </details>
+
+      <details>
+        <summary>Does it inject into Roblox?</summary>
+        <p>No. The core reads memory, the overlay draws in its own window, and the macro sends input. Nothing is loaded into the game process.</p>
+      </details>
+
+      <details>
+        <summary>Why did my install lose the ESP after updating?</summary>
+        <p>That was 1.1.9 and 1.1.10 — the archive shipped without <code>BlackPandaOverlay.exe</code>. Fixed in 1.1.11: the packaging step refuses to build an archive missing the overlay, the core reports the overlay state on the Visuals card, and it relaunches the overlay if the process dies.</p>
+      </details>
+
+      <details>
+        <summary>Does it work with every rod and minigame?</summary>
+        <p>Rod and minigame controllers are calibrated per rod. The four shipped minigames cover the common rods; anything new needs a calibration pass, which is what the Calibration card is for.</p>
+      </details>
+
+      <details>
+        <summary>Windows SmartScreen says unknown publisher.</summary>
+        <p>The build is not code-signed. Choose <em>More info → Run anyway</em>. The checksum is published so you can confirm the file before you run it.</p>
+      </details>
+    </section>
+
+    <section class="closer">
+      <h2>Grab it and go fishing.</h2>
+      <div class="cta-row">
+        <a class="btn primary" href="https://github.com/lolcaken/the-moath-macro/releases/latest">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+          <span>Download installer</span>
+        </a>
+        <a class="btn" href="https://github.com/lolcaken/the-moath-macro/releases" rel="noreferrer">All releases</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot-left">
+      <span class="brand-word">BLACKPANDA</span>
+      <span class="foot-note">Fisch macro · external overlay · Windows x64</span>
+    </div>
+    <div class="foot-right">
+      <a href="https://github.com/lolcaken/the-moath-macro" rel="noreferrer">GitHub</a>
+      <a href="https://github.com/lolcaken/the-moath-macro/releases" rel="noreferrer">Releases</a>
+      <a href="https://github.com/lolcaken/the-moath-macro/issues" rel="noreferrer">Issues</a>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="assets/site.js"></script>
+</body>
+</html>
