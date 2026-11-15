@@ -1,16 +1,16 @@
 {
-    "version": "1.1.14",
-    "notes": "## Player ESP\n\nThe overlay now draws other players, not just fish.\n\n- Box, name, distance and a health bar under the box top edge.\n- Off-screen players get an edge arrow with their name and distance, so a target behind you still reads as a direction.\n- **Last seen:** the client only streams a character in while you are close. When a player walks back out of range, the marker holds their last known spot, dims with age and is dropped after thirty seconds instead of vanishing.\n- Drawn after the fish, so a person always wins the pixel when they overlap.\n- New Visuals card: Players switch, health bar, last seen, max distance (50-5000 studs) and marker colour.\n\nThe local player is never drawn, and no position is invented for a player the client has not loaded - that data does not exist in the process.\n\n## Stability\n\n- **Client restart:** a closed Roblox leaves a valid handle with every read failing. The core now detects the exit, stops the macro, detaches, and reattaches to the next client automatically. The overlay does the same on its own.\n- **Scan guard:** one bad pointer in a fish walk ends that pass instead of taking the overlay down.\n- **Atomic config:** `esp.cfg` is written to a temp file and renamed over the old one, so the overlay can never load a half-written file.\n- **Device loss:** a GPU reset or driver update used to leave the overlay black until relaunch. `Present` failures are now detected and the D3D11 device, swap chain and composition visual are rebuilt in place.\n\nVersion 1.1.14.\n",
-    "assets": {
-        "windows-x64": {
-            "url": "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.14/BlackPANDA-1.1.14-win64.zip",
-            "sha256": "a96db8a7c767e52eb2cffbe2b5078c51e4928b012deb23799d38422c0939d082",
-            "size": 3998485
-        },
-        "windows-x64-setup": {
-            "url": "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.14/BlackPANDA-1.1.14-setup.exe",
-            "sha256": "89bb897f09f72f6c39a32a7819df8662c76d4e72595fdb54a0c325338d35f7c7",
-            "size": 4600804
-        }
-    }
+    "version":  "1.1.15",
+    "notes":  "## Box fit\n\nThe player box now measures the character instead of guessing.\n\n- The old box was a fixed 5.6-stud slab lifted off the root, so it sat inside the rig: too short over the head, too narrow around the arms.\n- The box is now the character\u0027s own AABB, gathered from the body parts, re-measured four times a second so a swinging arm or a fishing cast grows it instead of clipping through it.\n- Equipped gear is excluded from the measurement - a rod held out to the side no longer drags the box off the body - and the head carries a crown allowance so hooded and custom avatars are covered instead of cut.\n- Eight AABB corners are projected through the view matrix and the screen rectangle is the bound of those points. A single distance plus a fixed aspect only fits when the camera looks square at the model; up close or off to one side the near corners project further out, and that is what made the box slide and shrink.\n- Box scale now trims or pads the fitted rectangle.\n\n## Camera lock\n\nThe box sat one frame behind the camera: sweep the view and it trailed to the side, then snapped back when the turn stopped.\n\n- The view matrix is sampled as late in the frame as possible, after the per-target reads instead of before them.\n- **Camera lock** advances the matrix by one frame using the measured frame-to-frame delta, scaled by the actual frame time and capped, so a long frame cannot overshoot into a bounce.\n- Player markers are no longer eased: the position is read every frame, so the box is placed with this frame\u0027s value. Smoothing stays on the fish, where a scan is a 200 ms sample.\n\n## Cards\n\nEvery card with a master switch in its head dims its settings when the switch is off - not just the extras tab and not just the fish card. The rule matches the switch itself, so a new card inherits it the moment it is added.\n\nVersion 1.1.15.\n",
+    "assets":  {
+                   "windows-x64":  {
+                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.15/BlackPANDA-1.1.15-win64.zip",
+                                       "sha256":  "632a94fbce94edb77ef2d199b92b010a3b62fca896c05936e9f9d82ed7cc7156",
+                                       "size":  4002405
+                                   },
+                   "windows-x64-setup":  {
+                                             "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.15/BlackPANDA-1.1.15-setup.exe",
+                                             "sha256":  "a3336091eb907e2fea9bb778cc5512e35f168fc95855ab07738b1e4ad799c118",
+                                             "size":  4602820
+                                         }
+               }
 }
