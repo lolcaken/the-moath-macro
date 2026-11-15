@@ -1,16 +1,16 @@
 {
-    "version":  "1.1.13",
-    "notes":  "## ESP stability\n\n- Bodies are matched by model address across rescans, so a rescan no longer rebuilds the list from scratch. Surviving fish keep their state; despawned ones disappear on the next scan instead of hanging as ghosts.\n- Positions and box extents are eased per frame (`Smoothing` slider, 0-250 ms, default 90). The scanner samples at 200 ms and the renderer was drawing that sample raw, which stepped every box four times a second. `0` restores the old behaviour.\n- A failed part read no longer draws a stale box: three consecutive misses drops the body, and one bad scan (teleport, rejoin, slow frame) no longer clears the overlay - it takes three empty scans in a row.\n- Off-screen markers use hysteresis: they appear past 34 px and only clear inside 12 px, so a fish hovering on the edge stops flickering between marker and box.\n- Targets fade out as they reach the near plane instead of popping to a full-screen rectangle, and box height is capped against the viewport rather than a fixed 460 px.\n- Box centres are snapped to whole pixels, and the list draws far-to-near, so name plates stop shimmering and stop swapping z-order on every rescan.\n- Debug cross is cached for a second instead of walking the DataModel\u0027s children every frame.\n\n## ESP range (from 1.1.12)\n\n- Max distance slider 20000 studs with near / map / whole map presets; fade anchored to a fixed span so raising the range does not repaint the near fish.\n- Status chip prints the real reach: `FISH 56  far 268st  59 fps`.\n\n## Offsets (from 1.1.12)\n\n- Table fetched for the running client build, module-slot recovery when both pointer chains fail, coverage canary when a table maps fewer fields than before.",
+    "version":  "1.1.14",
+    "notes":  "## Player ESP\n\nThe overlay now draws other players, not just fish.\n\n- Box, name, distance and a health bar under the box top edge.\n- Off-screen players get an edge arrow with their name and distance, so a target behind you still reads as a direction.\n- **Last seen:** the client only streams a character in while you are close. When a player walks back out of range, the marker holds their last known spot, dims with age and is dropped after thirty seconds instead of vanishing.\n- Drawn after the fish, so a person always wins the pixel when they overlap.\n- New Visuals card: Players switch, health bar, last seen, max distance (50â€“5000 studs) and marker colour.\n\nThe local player is never drawn, and no position is invented for a player the client has not loaded â€” that data does not exist in the process.\n\n## Stability\n\n- **Client restart:** a closed Roblox leaves a valid handle with every read failing. The core now detects the exit, stops the macro, detaches, and reattaches to the next client automatically. The overlay does the same on its own.\n- **Scan guard:** one bad pointer in a fish walk ends that pass instead of taking the overlay down.\n- **Atomic config:** `esp.cfg` is written to a temp file and renamed over the old one, so the overlay can never load a half-written file.\n- **Device loss:** a GPU reset or driver update used to leave the overlay black until relaunch. `Present` failures are now detected and the D3D11 device, swap chain and composition visual are rebuilt in place.\n\nVersion 1.1.14.\n",
     "assets":  {
                    "windows-x64":  {
-                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.13/BlackPANDA-1.1.13-win64.zip",
-                                       "sha256":  "3f9f8da20482fb5d6a470f54f694d3f854116bf565c5d8d33932f840143bce51",
-                                       "size":  3976052
+                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.14/BlackPANDA-1.1.14-win64.zip",
+                                       "sha256":  "a96db8a7c767e52eb2cffbe2b5078c51e4928b012deb23799d38422c0939d082",
+                                       "size":  3998485
                                    },
                    "windows-x64-setup":  {
-                                             "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.13/BlackPANDA-1.1.13-setup.exe",
-                                             "sha256":  "3eb407e2dabb432d570738ca3a9cd872d1ed48bf95db2e3332daed625b4f2678",
-                                             "size":  4583287
+                                             "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.14/BlackPANDA-1.1.14-setup.exe",
+                                             "sha256":  "89bb897f09f72f6c39a32a7819df8662c76d4e72595fdb54a0c325338d35f7c7",
+                                             "size":  4600804
                                          }
                }
 }
