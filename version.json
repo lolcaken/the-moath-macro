@@ -1,16 +1,16 @@
 {
-    "version":  "1.1.7",
-    "notes":  "Fixes corrupted UI text. ui/web/index.html had been round-tripped through cp1252 (UTF-8 bytes decoded as Windows-1252 and re-saved as UTF-8), which turned every em dash, ellipsis, curly apostrophe and the multiplication sign in the aquarium presets into mojibake - the dropdown read \u0027Standard 1680A-900\u0027 instead of \u00271680x900\u0027, and the Hyperion/Process/Luau readouts showed garbage instead of an em dash. The bytes were still valid UTF-8, so nothing downstream noticed.\n\nAdds tools/check_encoding.py and wires it into packaging: the build now fails if any shipped text asset is not clean UTF-8 or contains cp1252 artifact sequences, so this class of corruption cannot reach a release again.\n\nShell rebuilt so the repaired HTML is embedded; core and Lua bundle unchanged from 1.1.6.",
+    "version":  "1.1.8",
+    "notes":  "Xorcist rod: the supercharge right-click now aims at empty world instead of the reel bar, so the game stops swallowing it as gameProcessed input. Every spend is verified against the static meter and the aim point rotates if a click gets eaten. Lua-only change.",
     "assets":  {
                    "windows-x64":  {
-                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.7/BlackPANDA-1.1.7-win64.zip",
-                                       "sha256":  "25c361f3b9c4b043fb4d99737f98c20dac9befcdd2d5ddb60cef8c554c1e58ae",
-                                       "size":  2680863
+                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.8/BlackPANDA-1.1.8-win64.zip",
+                                       "sha256":  "698f92fa719a168706f8bc7fc2b79e76ebe25a88dfa03b4e5d1f6f8ad6950067",
+                                       "size":  2677892
                                    },
                    "windows-x64-setup":  {
-                                             "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.7/BlackPANDA-1.1.7-setup.exe",
-                                             "sha256":  "0bfec835703813c9ce01c2bf50f126e3380edb7f910bf05fd71d25c2e5550ea6",
-                                             "size":  3939517
+                                             "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.8/BlackPANDA-1.1.8-setup.exe",
+                                             "sha256":  "3a13eeee37fc234fda8c60561214017977a2af32b7714fa5f28139369e51f7dc",
+                                             "size":  3936573
                                          }
                }
 }
