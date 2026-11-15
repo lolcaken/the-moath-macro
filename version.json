@@ -1,16 +1,16 @@
 {
-    "version":  "1.1.9",
-    "notes":  "Fish ESP, and a Visuals tab to drive it.\n\nNEW\n- Fish ESP: boxes, names, distance, tracers and off-screen pointers for every roaming fish in the water. Each plate carries the rarity of the bucket it spawned in (Sea Bass - Common), with the rarity tinted to the tier.\n- Relic ESP: its own card, its own switch, its own tier filter. Enchant, Exalted, Cosmic, Twisted, Crested and Empyrean keep distinct colours; anything new falls back to the relic swatch.\n- Rarity filters are multi-select, so Rare + Relic is one tick list instead of two passes over the water.\n- Visuals tab on the rail.\n\nFIXED\n- Cast and Reel \u0026 shake have master switches in the card head; the card dims when the whole group is off, and the individual switches stay clickable underneath.\n- ESP calibration moved to Settings, where the diagnostics belong.\n- The overlay no longer eats the mouse. It draws over the game and the camera keeps working.\n- The harpoon rarity filter was being written into the fish filter; the two lists are independent now.\n\nUNDER THE HOOD\n- The overlay is its own process (BlackPandaOverlay.exe), started by the core and killed with it, so an overlay crash never takes the macro down.\n- DirectComposition swap chain: per-pixel alpha composited on the GPU, a steady 60 fps over the game.\n- Structure scans run on a worker thread; the render loop only reads a snapshot.\n- F8 hides the overlay without touching your saved settings.",
+    "version":  "1.1.10",
+    "notes":  "Fish ESP, plus a fix for this dialog.\n\n- Fish ESP: boxes, names, distance, tracers and edge arrows for every roaming fish, with the rarity on the plate (Sea Bass - Common).\n- Relic ESP card with its own switch and tier filter.\n- Visuals tab on the rail.\n- Cast and Reel \u0026 shake got master switches; the card dims when the group is off.\n- ESP calibration moved to Settings.\n- The overlay is click-through again, so the camera works while it draws.\n- Long changelogs now scroll inside the update dialog instead of pushing Install off screen.",
     "assets":  {
                    "windows-x64":  {
-                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.9/BlackPANDA-1.1.9-win64.zip",
-                                       "sha256":  "8994ba35ec9b4201d9524ec6eedb0ad80e04955861f927333cdc39f2b870a488",
-                                       "size":  2686912
+                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.10/BlackPANDA-1.1.10-win64.zip",
+                                       "sha256":  "63a9e3fdad983933cf4014b30974b9a3fe38c3b5353546a10c64200efad11ca9",
+                                       "size":  2687357
                                    },
                    "windows-x64-setup":  {
-                                             "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.9/BlackPANDA-1.1.9-setup.exe",
-                                             "sha256":  "5d012f42cf4aff75d7b2d5b6b6c8ca7b93569f0c62b2a06fd4f197f28b82d51c",
-                                             "size":  3943127
+                                             "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.10/BlackPANDA-1.1.10-setup.exe",
+                                             "sha256":  "219bafc117ef5cff201d7b91fd2076be1cf65743b58830912893fdadcf094876",
+                                             "size":  3943824
                                          }
                }
 }
