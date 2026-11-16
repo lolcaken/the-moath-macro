@@ -1,16 +1,16 @@
 {
-    "version":  "1.1.16",
-    "notes":  "## Box geometry\n\nThe player box is now built from the character\u0027s joints instead of a measured bounding box.\n\n- Every joint - root, head, torso, arms, legs - is expanded into eight corners at fixed half-extents, all corners are projected, and the rectangle is the min/max of those points. R6 and R15 rigs use their own extents.\n- A joint read that is missing, non-finite, or more than 25 studs from the body is dropped, so a stale part from a previous character cannot stretch the box.\n- Every rectangle is floored to whole pixels before it is drawn. A box that moves by a third of a pixel flickers its anti-aliased edge, and on a moving background that reads as vibration.\n- The last good rectangle is held for 250 ms when a projection fails, so a corner slipping past the near plane no longer makes the box blink or jump to a fallback. Any camera turn larger than about five degrees clears the held rectangles, so a stale box is never dragged across the screen.\n- Fallback when the joints are not readable: head plus 0.6 studs down to root minus 3.0 (R6) or 2.5 (R15), fixed aspect, five pixel pad.\n\n## Camera\n\n- Camera prediction is off by default. The new geometry does not need it, and a wrong lead is worse than no lead - the previous build measured more shake with it than without.\n- The view matrix is still sampled after the per-target reads, so the box is projected from the newest camera the game has published.\n- The Camera lock toggle stays in Visuals for anyone who wants the lead back.\n\n## Ghosts\n\n- A player who streams out keeps the joint set they had, so the ghost box stays on the body at the last known spot and ages out the same way as before.\n\nVersion 1.1.16.\n",
+    "version":  "1.1.19",
+    "notes":  "## Chimera\n\nBlackPANDA is now Chimera.\n\n- New name and icon across the app, installer, desktop shortcut and download page.\n- One START / STOP toggle replaces the old separate buttons.\n- The installer removes the old BlackPANDA install, Start Menu entry and desktop shortcut, then installs under %LOCALAPPDATA%\\Programs\\Chimera.\n- Settings, offsets and logs migrate to %LOCALAPPDATA%\\Chimera.\n- A one-time note appears after the update and never returns.\n- Farming, ESP, aquarium, custom rods, hotkeys and telemetry are unchanged.",
     "assets":  {
                    "windows-x64":  {
-                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.16/BlackPANDA-1.1.16-win64.zip",
-                                       "sha256":  "9857b2440f5e4319cbf98c2a6defc5ca69d944bfaf8f3ecf081b12e5d565d2ff",
-                                       "size":  4009180
+                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.19/Chimera-1.1.19-win64.zip",
+                                       "sha256":  "573a877db8dec5c15ee3f0ac7a73a748e475a0fc0c631c9167632830e7072a5f",
+                                       "size":  3995352
                                    },
                    "windows-x64-setup":  {
-                                             "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.16/BlackPANDA-1.1.16-setup.exe",
-                                             "sha256":  "603697c961b869b3381ec7b328ab5fb5ce0411cbebe96b74249dc92e121cd982",
-                                             "size":  4604970
+                                             "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.19/Chimera-1.1.19-setup.exe",
+                                             "sha256":  "c947624c4b116fdbfe4a3f06f0d38316784b09f19b3d2303f5cee960fc953079",
+                                             "size":  4645770
                                          }
                }
 }
