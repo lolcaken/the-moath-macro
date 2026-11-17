@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BLACKPANDA — Fisch on autopilot</title>
-  <meta name="description" content="BlackPANDA is a Windows macro for Fisch: auto cast, reel minigames, harpoon targeting and an external overlay that marks every fish in the water. External process, read-only memory, nothing injected." />
+  <title>CHIMERA — Fisch on autopilot</title>
+  <meta name="description" content="Chimera is a Windows macro for Fisch: auto cast, reel minigames, harpoon targeting and an external overlay that marks every fish in the water. External process, read-only memory, nothing injected." />
   <meta name="theme-color" content="#05060a" />
   <link rel="icon" href="assets/mark.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,7 +16,7 @@
   <div class="grid-bg" aria-hidden="true"></div>
 
   <header class="top">
-    <a class="brand" href="#top" aria-label="BlackPANDA home">
+    <a class="brand" href="#top" aria-label="Chimera home">
       <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
         <circle class="panda-ear" cx="9.4" cy="9" r="4.6" />
         <circle class="panda-ear" cx="22.6" cy="9" r="4.6" />
@@ -27,7 +27,7 @@
         <circle class="panda-eye" cx="19.6" cy="15.4" r="1.05" />
         <path class="panda-nose" d="M14.5 20.3h3l-1.5 1.8z" />
       </svg>
-      <span class="brand-word">BLACKPANDA</span>
+      <span class="brand-word">CHIMERA</span>
     </a>
 
     <nav class="nav" aria-label="Sections">
@@ -62,7 +62,7 @@
         <a class="btn primary" id="btn-installer" href="https://github.com/lolcaken/the-moath-macro/releases/latest">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
           <span>Download installer</span>
-          <span class="btn-meta" data-manifest="size-setup">4.58 MB</span>
+          <span class="btn-meta" data-manifest="size-setup">4.52 MB</span>
         </a>
         <a class="btn" id="btn-portable" href="https://github.com/lolcaken/the-moath-macro/releases/latest">
           Portable .zip
@@ -72,15 +72,15 @@
       <dl class="release-meta">
         <div>
           <dt>Latest</dt>
-          <dd><span class="live" data-manifest="version">v1.1.13</span></dd>
+          <dd><span class="live" data-manifest="version">v1.1.20</span></dd>
         </div>
         <div>
           <dt>Portable size</dt>
-          <dd><span data-manifest="size-zip">3.98 MB</span></dd>
+          <dd><span data-manifest="size-zip">3.93 MB</span></dd>
         </div>
         <div class="sha">
           <dt>SHA-256 <button class="copy" id="copy-sha" type="button" aria-label="Copy checksum">copy</button></dt>
-          <dd><code data-manifest="sha">3f9f8da2…43bce51</code></dd>
+          <dd><code data-manifest="sha">b7bdfbef&hellip;48c7373</code></dd>
         </div>
       </dl>
     </section>
@@ -93,7 +93,7 @@
         </div>
         <p>Per-user setup, no admin prompt. Adds a Start Menu entry and an uninstaller, and keeps itself current through the app's own updater.</p>
         <ul class="ticks">
-          <li>Installs to <code>%LOCALAPPDATA%\Programs\BlackPANDA</code></li>
+          <li>Installs to <code>%LOCALAPPDATA%\Programs\Chimera</code></li>
           <li>Auto-updates on launch</li>
           <li>Uninstalls clean, settings survive</li>
         </ul>
@@ -108,10 +108,10 @@
           <span class="tag quiet">Portable</span>
           <h2>.zip archive</h2>
         </div>
-        <p>Same build, no installer. Extract anywhere writable and run <code>BlackPANDA.exe</code>. Updates land the same way, in place.</p>
+        <p>Same build, no installer. Extract anywhere writable and run <code>Chimera.exe</code>. Updates land the same way, in place.</p>
         <ul class="ticks">
           <li>Shell, core and overlay in one folder</li>
-          <li>Settings live in <code>%LOCALAPPDATA%\BlackPANDA</code></li>
+          <li>Settings live in <code>%LOCALAPPDATA%\Chimera</code></li>
           <li>Easy to move between drives</li>
         </ul>
         <a class="build-link" href="https://github.com/lolcaken/the-moath-macro/releases/latest">
@@ -176,17 +176,17 @@
         <li>
           <span class="step-no">01</span>
           <h3>The shell</h3>
-          <p><code>BlackPANDA.exe</code> holds the UI, writes the config and spawns the core. Tauri window, no browser chrome.</p>
+          <p><code>Chimera.exe</code> holds the UI, writes the config and spawns the core. Tauri window, no browser chrome.</p>
         </li>
         <li>
           <span class="step-no">02</span>
           <h3>The core</h3>
-          <p><code>BlackPandaCore.exe</code> attaches to Roblox read-only, runs the Lua modules, resolves offsets, and keeps the overlay alive. Crash here and the game never notices.</p>
+          <p><code>ChimeraCore.exe</code> attaches to Roblox read-only, runs the Lua modules, resolves offsets, and keeps the overlay alive. Crash here and the game never notices.</p>
         </li>
         <li>
           <span class="step-no">03</span>
           <h3>The overlay</h3>
-          <p><code>BlackPandaOverlay.exe</code> owns a click-through DirectComposition window over the client. 60 fps, per-pixel alpha, F8 to hide.</p>
+          <p><code>ChimeraOverlay.exe</code> owns a click-through DirectComposition window over the client. 60 fps, per-pixel alpha, F8 to hide.</p>
         </li>
       </ol>
 
@@ -214,7 +214,7 @@
 
       <details>
         <summary>Why did my install lose the ESP after updating?</summary>
-        <p>That was 1.1.9 and 1.1.10 — the archive shipped without <code>BlackPandaOverlay.exe</code>. Fixed in 1.1.11: the packaging step refuses to build an archive missing the overlay, the core reports the overlay state on the Visuals card, and it relaunches the overlay if the process dies.</p>
+        <p>That was 1.1.9 and 1.1.10 — the archive shipped without <code>ChimeraOverlay.exe</code>. Fixed in 1.1.11: the packaging step refuses to build an archive missing the overlay, the core reports the overlay state on the Visuals card, and it relaunches the overlay if the process dies.</p>
       </details>
 
       <details>
@@ -242,7 +242,7 @@
 
   <footer class="foot">
     <div class="foot-left">
-      <span class="brand-word">BLACKPANDA</span>
+      <span class="brand-word">CHIMERA</span>
       <span class="foot-note">Fisch macro · external overlay · Windows x64</span>
     </div>
     <div class="foot-right">
