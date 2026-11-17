@@ -1,16 +1,16 @@
 {
-    "version":  "1.1.19",
-    "notes":  "## Chimera\n\nBlackPANDA is now Chimera.\n\n- New name and icon across the app, installer, desktop shortcut and download page.\n- One START / STOP toggle replaces the old separate buttons.\n- The installer removes the old BlackPANDA install, Start Menu entry and desktop shortcut, then installs under %LOCALAPPDATA%\\Programs\\Chimera.\n- Settings, offsets and logs migrate to %LOCALAPPDATA%\\Chimera.\n- A one-time note appears after the update and never returns.\n- Farming, ESP, aquarium, custom rods, hotkeys and telemetry are unchanged.",
+    "version":  "1.1.20",
+    "notes":  "## Chimera v1.1.20 â€” stability pass\n\nThis build is almost entirely about the macro randomly stopping, and the things that caused it.\n\n### The random stop was self-inflicted\n\nChimera\u0027s clicks and keypresses are synthetic, so they go to whatever window has focus. If focus drifted for even a moment, that input landed on Chimera\u0027s own window instead of Roblox â€” and if the cursor was over the START button, the macro clicked its own off switch. From the outside it looked like a random crash. It was not.\n\nEvery synthetic click and keystroke now checks that Roblox is actually the foreground window before it fires. If it is not, the input is dropped and the log says so once every few seconds. Releases are deliberately exempt, so a mouse button or key that is already held down is always released and nothing can stick.\n\n### Stops now explain themselves\n\nThe log used to just say the macro stopped. It now names the caller: you pressed Stop, the hotkey fired, the app detached, or the Roblox client actually exited. A stop that says the script returned on its own is a real problem; a stop that says it was requested means something asked for it.\n\n### Rod handling\n\nChimera used to keep clicking if you unequipped, dropped, or hotbar-swapped the rod mid-catch. Now it watches the held item on a short cadence, and on a lost rod it releases the mouse, resets the reeler and shaker, and re-equips cleanly. If the rod is gone from its slot entirely it stops pressing keys and pauses instead of hammering a slot that cannot be fixed.\n\nCasting is guarded the same way. Nothing in hand means no cast, and the macro no longer parks waiting for a bite that cannot arrive.\n\n### Reel controller\n\nThe reel loop now treats the minimum press duration and the minimum release duration separately instead of using one shared floor. On a fast fish the old version would press, release, and press again before the bar had moved â€” constant chatter that read as the macro fighting itself. Each correction now has to earn its dwell before it can reverse.\n\nCorrection strength is also split per direction and per bar state (settled vs already moving), so it can be tuned per rod. Those start neutral: the only behaviour change in this build is the dwell.\n\n### Webhook tab\n\nThe tab no longer looks broken when disabled. It is dimmed properly and states clearly whether it is on or off.\n\n### Also\n\nThe exploits module is fully removed â€” code, tab and config keys.\n\nFarming, ESP, aquarium, custom rods and telemetry are otherwise unchanged.\n",
     "assets":  {
                    "windows-x64":  {
-                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.19/Chimera-1.1.19-win64.zip",
-                                       "sha256":  "573a877db8dec5c15ee3f0ac7a73a748e475a0fc0c631c9167632830e7072a5f",
-                                       "size":  3995352
+                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.20/Chimera-1.1.20-win64.zip",
+                                       "sha256":  "21ccaf30c541b0571d9119aa5cdadc1565b1404a79f87337894cf7124aa41f91",
+                                       "size":  4122950
                                    },
                    "windows-x64-setup":  {
-                                             "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.19/Chimera-1.1.19-setup.exe",
-                                             "sha256":  "c947624c4b116fdbfe4a3f06f0d38316784b09f19b3d2303f5cee960fc953079",
-                                             "size":  4645770
+                                             "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.20/Chimera-1.1.20-setup.exe",
+                                             "sha256":  "c8bb3ffd80615bf0f320bccfed368cfae27f752f08b8fb6ae9a6476fb5807025",
+                                             "size":  4744851
                                          }
                }
 }
