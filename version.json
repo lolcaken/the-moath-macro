@@ -1,16 +1,16 @@
 {
-    "version":  "1.1.22",
-    "notes":  "## Chimera v1.1.22 - the pause fix\n\nThree changes, all aimed at the macro going quiet mid-session.\n\n### Shake timeout halved, 30 s to 16 s\n\nWhen a bite doesn\u0027t produce a shake button, the macro used to stand still for a full thirty seconds before recasting. A 4.5-minute session log showed one of those dead waits (`idle_ms=30022`) in a run that caught nothing.\n\nThe watchdog only counts time since the last successful click, so a real shake that keeps landing clicks never trips it. A bite that never arrives now costs 16 seconds instead of 30 - which is what ExoPanda ships.\n\nIt is also tunable now, without a rebuild:\n\n```\nSHAKE_TIMEOUT_MS = 16000\n```\n\nAdd that line to `%LOCALAPPDATA%\\Chimera\\config\\fisch.cfg` and it applies live. Values under 1000 are ignored.\n\n### Phantom-rail guard\n\n`reel.bar` is the static background rail. The parts that move are its children, `reel.bar.playerbar` and `reel.bar.fish`.\n\nThe old liveness test accepted either child. A stale GUI pointer could therefore keep resolving the rail after the minigame was gone, and the macro would enter a catch that did not exist: `[Reel] Reeling...` logged, zero mouse presses issued because there was nothing to chase, the stuck detector ending it a second later, then a recast into the same dead rail.\n\nHis log was exactly that shape - 20 casts in 285 seconds, no press events, no catches.\n\nBoth children are now required. A genuine reel keeps both resolvable, and the existing 500 ms holdover still bridges a single dropped read.\n\nSet `REEL_REQUIRE_FISH = false` in `fisch_data.lua` to restore the old behaviour.\n\n### Unchanged\n\nVersion bump touches the app stamp only - farming, ESP, aquarium, custom rods, harpoon, minigames and telemetry are as they were in 1.1.21.\n\nThe exploits module remains fully removed.\n\n### Known unverified\n\nNothing in this build has been run against a live Roblox client. Live ESP confirmation and real webhook delivery are both still outstanding.\n",
+    "version":  "1.1.23",
+    "notes":  "## Chimera v1.1.23 - settings, search, visible feedback\n\nA shell release. The farm loops, the offsets table and the ESP are the same code as 1.1.22.\n\n### Settings tab\n\nNew rail entry under the data group. The Updates card shows the installed version, the latest published version and the channel state, with Check and Install on the same row. Install runs the updater the app already used at startup: the installer closes this window, replaces the files and brings it back.\n\nRelease notes now render as notes - headings, paragraphs, inline code - in their own scroll area. They used to arrive as one collapsed paragraph with the markdown markers still in it.\n\n### Search reaches the toggles\n\nThe palette indexes every toggle as well as every screen. `Fishing \u003e Auto cast` resolves to the row itself: Enter opens Fishing, scrolls to the row and pulses it. Multi-word queries match in any order, and row descriptions are searchable.\n\n### Toasts were never drawn\n\n`toast()` queued a message in the store and no component rendered the queue, so Check, Install, Re-attach and the engine switch all reported into nothing. One stack now sits above the status bar with the tone on its left edge.\n\n### Checks\n\n`tsc --noEmit` clean, `vite build` clean, core and shell built from the same tree. Window unchanged at 760 x 480.\n",
     "assets":  {
                    "windows-x64":  {
-                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.22/Chimera-1.1.22-win64.zip",
-                                       "sha256":  "b679723e46bc11f92c61f89160b894aa344769358c41b5d6125fdce869d34d44",
-                                       "size":  4128153
+                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.23/Chimera-1.1.23-win64.zip",
+                                       "sha256":  "014b4b9805ea6b2834fb3fcb6e186aa0c4ca7888d130e78dfadd3a51110e3b71",
+                                       "size":  5057823
                                    },
                    "windows-x64-setup":  {
-                                             "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.22/Chimera-1.1.22-setup.exe",
-                                             "sha256":  "c89457ff9339f9ba9e6952e48e687970f20aeef98a5f725a883107ab348f6edb",
-                                             "size":  4745272
+                                             "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.23/Chimera-1.1.23-setup.exe",
+                                             "sha256":  "0a9ba88d26b99f7ac245bc792fbfa36df9718831568b592e560e006d1b6cf9e4",
+                                             "size":  5598347
                                          }
                }
 }
