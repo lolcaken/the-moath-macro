@@ -1,16 +1,16 @@
 {
-    "version":  "1.1.23",
-    "notes":  "## Chimera v1.1.23 - settings, search, visible feedback\n\nA shell release. The farm loops, the offsets table and the ESP are the same code as 1.1.22.\n\n### Settings tab\n\nNew rail entry under the data group. The Updates card shows the installed version, the latest published version and the channel state, with Check and Install on the same row. Install runs the updater the app already used at startup: the installer closes this window, replaces the files and brings it back.\n\nRelease notes now render as notes - headings, paragraphs, inline code - in their own scroll area. They used to arrive as one collapsed paragraph with the markdown markers still in it.\n\n### Search reaches the toggles\n\nThe palette indexes every toggle as well as every screen. `Fishing \u003e Auto cast` resolves to the row itself: Enter opens Fishing, scrolls to the row and pulses it. Multi-word queries match in any order, and row descriptions are searchable.\n\n### Toasts were never drawn\n\n`toast()` queued a message in the store and no component rendered the queue, so Check, Install, Re-attach and the engine switch all reported into nothing. One stack now sits above the status bar with the tone on its left edge.\n\n### Checks\n\n`tsc --noEmit` clean, `vite build` clean, core and shell built from the same tree. Window unchanged at 760 x 480.\n",
+    "version":  "1.1.24",
+    "notes":  "## Chimera v1.1.24 - ESP recovery\n\nFixes the two ways the overlay could stop drawing while the core still reported a healthy attach.\n\n### The root went stale\n\n`get_data_model()` trusted a cached pointer whenever its class read `DataModel`. The client publishes a DataModel before the game loads and then replaces it - the old one keeps the class name and reports zero children, so every reader downstream walked an empty tree. The cache now requires children, and a stale root is resolved again instead of being handed out.\n\n### The offsets table churned\n\n`offsets.ini` was rewritten on every theo sync even when no value had moved - every five minutes in steady state, and every 20-60 s while validation was failing. The overlay watched the file\u0027s mtime, so each rewrite detached the Roblox handle, dropped the resolved root and hid the window. Saves now compare content, and the overlay hashes the file instead of watching the mtime.\n\n### Smaller\n\n- the 6 s slot recovery sweep no longer runs on the render thread\n- `overlay.log` gets `DataModel resolved at 0x...`, one line per attach\n\n### Checks\n\nCore, overlay and shell built from the same tree. Overlay resolves in ~0.2 s against a live client, and a forced offsets sync leaves both the file and the overlay untouched.\n",
     "assets":  {
                    "windows-x64":  {
-                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.23/Chimera-1.1.23-win64.zip",
-                                       "sha256":  "014b4b9805ea6b2834fb3fcb6e186aa0c4ca7888d130e78dfadd3a51110e3b71",
-                                       "size":  5057823
+                                       "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.24/Chimera-1.1.24-win64.zip",
+                                       "sha256":  "76983c59163e2e3ef9dd37fe7511b94cf49745889c071897770962ce954b9b1a",
+                                       "size":  5089108
                                    },
                    "windows-x64-setup":  {
-                                             "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.23/Chimera-1.1.23-setup.exe",
-                                             "sha256":  "0a9ba88d26b99f7ac245bc792fbfa36df9718831568b592e560e006d1b6cf9e4",
-                                             "size":  5598347
+                                             "url":  "https://github.com/lolcaken/the-moath-macro/releases/download/v1.1.24/Chimera-1.1.24-setup.exe",
+                                             "sha256":  "913241efdd5c9c2f8a1db69624b9e12b02a7c4935abc2312f0d030684d25d0c9",
+                                             "size":  5604437
                                          }
                }
 }
